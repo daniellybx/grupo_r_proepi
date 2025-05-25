@@ -1,4 +1,4 @@
-# Grupo de Estudos R
+# Grupo de Estudos R - Apoio ProEpi 2025
 
 Repositório oficial do Grupo de Estudos R, uma comunidade colaborativa voltada ao ensino da linguagem R com foco em aplicações em Saúde Pública, Epidemiologia e Vigilância em Saúde. Os encontros são baseados no [Manual de R para Epidemiologistas](https://epirhandbook.com/pt/index.pt.html).
 
