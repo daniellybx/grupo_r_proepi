@@ -173,3 +173,4 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 .Rproj.user
+.DS_Store
