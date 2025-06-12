@@ -22,6 +22,7 @@ pacman::p_load_gh("reconhub/epicontacts@timeline")          # versão com funcio
 # Alternativas usando funções base do R para instalação e carregamento dos pacotes:
 install.packages("tidyverse")                                # instala tidyverse (coleção de pacotes para análise de dados)
 install.packages(c("tidyverse", "rio", "here"))              # instala múltiplos pacotes de uma vez
+
 library(tidyverse)                                           # carrega o tidyverse
 library(rio)                                                 # carrega o rio
 library(here)                                                # carrega o here
@@ -121,7 +122,7 @@ linelist %>% filter(row_number() %in% 2:20) %>% select(date_onset, outcome, age)
 # Criar variável categórica com lógica condicional baseada em idade e resposta afirmativa
 linelist <- linelist %>% 
   mutate(child_hospitaled = case_when(
-    hospitalized %in% affirmative & age < 18 ~ "Hospitalized Child",
+   age < 18 ~ "Hospitalized Child",
     TRUE ~ "Not"))
 
 # ======================================================
@@ -164,11 +165,9 @@ linelist_summary <- linelist %>% count(age_cat)  # salva como objeto
 
 # Filtragem de linhas
 linelist <- linelist %>% filter(age > 50)     # apenas maiores de 50 anos
-linelist %<>% filter(age > 50)                # mesmo resultado com pipe inplace
 
 # Criar nova variável derivada (idade em meses)
 linelist <- linelist %>% mutate(age_months = age_years * 12)
-linelist %<>% mutate(age_months = age_years * 12)
 
 # Classificação condicional de casos com base no desfecho ('outcome')
 linelist_cleaned <- linelist %>%
@@ -186,6 +185,7 @@ is.na(rdt_result)
 # ======================================================
 # SEÇÃO 4: Visualização de Dados
 # ======================================================
+library(apyramid)
 
 # Gera pirâmides etárias a partir de dados agrupados
 age_pyramid(data = linelist, age_group = "age_cat5", split_by = "gender")
