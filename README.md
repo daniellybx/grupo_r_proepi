@@ -27,7 +27,7 @@ Democratizar o uso da linguagem R entre profissionais da saúde, com foco em res
 - Grupo ativo no WhatsApp com mais de 680 membros.
 - Certificação para quem:
   - Participar de pelo menos 70% dos encontros ao vivo.
-  - Realizar 3 dos 5 desafios propostos durante o ano.
+  - Realizar 3 dos 4 desafios propostos durante o ano.
 
 ## Acesso às gravações
 
