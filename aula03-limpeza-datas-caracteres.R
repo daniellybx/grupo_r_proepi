@@ -54,16 +54,16 @@ colSums(is.na(dados))
 
 dados <- dados %>%
   mutate(
-    nome = str_to_lower(nome),                      # tudo minúsculo
-    nome = str_squish(nome),                        # remover espaços extras
-    nome = str_to_title(nome)                       # capitalizar nomes
+    nome_minusculo = str_to_lower(nome),            # tudo minúsculo
+    nome_unir = str_squish(nome),                   # remover espaços extras
+    nome_letra_maiuscula = str_to_title(nome)       # capitalizar nomes
   )
 
 # ------------------------------
 # 3.3. Tratamento de variáveis categóricas (sexo)
 # ------------------------------
 
-dados <- dados %>%
+dados_copy <- dados %>%
   mutate(sexo = case_when(
     sexo %in% c("F", "feminino", "Feminino") ~ "Feminino",
     sexo %in% c("M", "masculino", "Masculino") ~ "Masculino",
@@ -73,7 +73,7 @@ dados <- dados %>%
   )) %>%
   mutate(sexo = factor(sexo))
 
-table(dados$sexo)
+table(dados_copy$sexo)
 
 # ------------------------------
 # 3.4. Limpando variáveis de idade

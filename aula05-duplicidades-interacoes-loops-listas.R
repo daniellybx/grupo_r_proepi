@@ -64,9 +64,9 @@ base_sem_parcial <- base[!duplicadas_parcial, ]
 # ------------------------------
 
 # IF simples: criar coluna indicando se o paciente é idoso
-base$eh_idoso <- NA
-base$eh_idoso[base$idade >= 60] <- "Sim"
-base$eh_idoso[base$idade < 60] <- "Não"
+base$idoso <- NA
+base$idoso[base$idade >= 60] <- "Sim"
+base$idoso[base$idade < 60] <- "Não"
 
 # IF-ELSE: classificar resultado do exame
 base$classificacao_exame <- NA

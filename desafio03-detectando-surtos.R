@@ -50,42 +50,40 @@ serie %>%
   theme_minimal()
 
 # =============================================================
-# 3. Cálculo da média móvel de 3 semanas
+# 3. Calcule a média móvel de 3 semanas
 # =============================================================
 
-serie <- serie %>%
-  mutate(media_movel = zoo::rollmean(casos, k = 3, fill = NA, align = "right"))
+# Use a função rollmean para calcular a média móvel dos casos
+# Crie uma nova coluna chamada "media_movel" dentro do objeto "serie"
 
-serie %>%
-  ggplot(aes(x = semana)) +
-  geom_line(aes(y = casos), color = "gray", alpha = 0.6) +
-  geom_line(aes(y = media_movel), color = "red", size = 1) +
-  labs(title = "Média Móvel de 3 Semanas", x = "Semana", y = "Casos") +
-  theme_minimal()
+# Em seguida, crie um gráfico com:
+# - Linha cinza para os casos
+# - Linha vermelha para a média móvel de 3 semanas
 
 # =============================================================
-# 4. Estimativa simplificada de Rt semanal
+# 4. Estime o Rt semanal de forma simplificada
 # =============================================================
 
 serie <- serie %>%
   mutate(
-    casos_passado = lag(casos, 1),          # número de casos da semana anterior
-    rt_estimado = casos / casos_passado     # Rt = casos atuais / casos anteriores
+    casos_passado = lag(casos),
+    rt_estimado = casos / casos_passado
   )
 
+# Gráfico do Rt com linha azul e linha vermelha pontilhada em y = 1
 serie %>%
   ggplot(aes(x = semana, y = rt_estimado)) +
   geom_line(color = "blue") +
   geom_hline(yintercept = 1, linetype = "dashed", color = "red") +
-  labs(title = "Estimativa Simples de Rt", x = "Semana", y = "Rt") +
+  labs(title = "Estimativa simplificada do Rt",
+       x = "Semana", y = "Rt estimado") +
   theme_minimal()
 
 # =============================================================
 # 5. Conclusão
 # =============================================================
 
-# A média móvel suaviza a série, facilitando a identificação de surtos e tendências.
-# A estimativa simples de Rt mostra em quais semanas a transmissão aumentou (Rt > 1).
-# Picos anômalos podem sugerir surtos localizados e ajudam a orientar investigações.
-
-
+# Interprete os gráficos:
+# - Quando há indícios de surtos?
+# - Quando o Rt ficou acima de 1?
+# - A média móvel ajuda a entender melhor os padrões?

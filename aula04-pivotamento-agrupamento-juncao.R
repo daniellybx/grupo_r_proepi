@@ -23,7 +23,7 @@ n <- 1000
 # Base principal com informações de pacientes
 dados_pacientes <- data.frame(
   id_paciente = 1:n,
-  sexo = sample(c("Masculino", "Feminino", "Outro"), n, replace = TRUE),
+  sexo = sample(c("Masculino", "Feminino", "Ignorado"), n, replace = TRUE),
   faixa_etaria = sample(c("0-17", "18-34", "35-49", "50-64", "65+"), n, replace = TRUE),
   municipio = sample(c("São Paulo", "Rio de Janeiro", "Belo Horizonte"), n, replace = TRUE),
   ano = sample(c(2021, 2022, 2023), n, replace = TRUE),
