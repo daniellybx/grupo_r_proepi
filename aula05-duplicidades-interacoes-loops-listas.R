@@ -140,8 +140,8 @@ for (i in 1:nrow(base)) {
 # ------------------------------
 
 # Criando uma lista com subconjuntos da base por município
-lista_municipios <- base %>% group_split(municipio)
-nomes_municipios <- base %>% group_keys(municipio) %>% pull()
+lista_municipios <- base %>% group_by(municipio) %>% group_split()
+nomes_municipios <- base %>% distinct(municipio) %>% pull(municipio)
 names(lista_municipios) <- nomes_municipios
 
 # Verificando o número de registros por item da lista com map
