@@ -141,7 +141,8 @@ for (i in 1:nrow(base)) {
 
 # Criando uma lista com subconjuntos da base por município
 lista_municipios <- base %>% group_by(municipio) %>% group_split()
-nomes_municipios <- base %>% distinct(municipio) %>% pull(municipio)
+nomes_municipios <- base %>% distinct(municipio) %>% pull(municipio) %>% sort()
+
 names(lista_municipios) <- nomes_municipios
 
 # Verificando o número de registros por item da lista com map
@@ -172,4 +173,3 @@ comparativo$proporcao <- round(comparativo$positivos / comparativo$total, 2)
 # - A remover duplicidades (total, por coluna, por múltiplas colunas)
 # - A usar estruturas clássicas: if, else, ifelse, for, while, repeat, next, break
 # - A manipular e iterar sobre listas
-# - A aplicar lapply e map para percorrer elementos
