@@ -175,8 +175,6 @@ cython_debug/
 .Rproj.user
 .DS_Store
 
-desafio01-gerenciamento-dados-gabarito.R
 desafio02-testes-estatisticos-gabarito.R
 desafio03-detectando-surtos-gabarito.R
 desafio04-surveys-gabarito.R
-
