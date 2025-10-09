@@ -270,7 +270,7 @@ df_t_sexo <- sih_df_2024 %>%
 levels(df_t_sexo$SEXO)
 
 # Executa o teste t
-t_sexo <- t.test(QT_DIARIAS ~ SEXO, data = df_t_sexo, var.equal = FALSE)
+t_sexo <- t.test(QT_DIARIAS ~ SEXO, data = df_t_sexo, var.equal = FALSE) #Versão Teste de Welsh: corrihe para variâncias disstintas
 print(t_sexo)
 
 # 5.2 TESTE t - QT_DIARIAS por IDOSO vs ADULTO

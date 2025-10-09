@@ -4,6 +4,19 @@
 # e realizar normalização de taxas para análises em epidemiologia.
 
 # =============================================================
+# Disclaimer
+# =============================================================
+# Nomes corretos para os símbolos
+
+## Colchetes [ ]: Também podem representar um Intervalo Fechado (inclui os limites) em notação matemática, como [1, 5].
+## Chaves { }: Usadas na notação matemática para definir um Conjunto, por exemplo: A = {1, 2, 3}.
+
+# Medidas comparadas nos testes de hipótese paramétricos e não paramétricos
+
+# Teste t de Student (Paramétrico) - função t-test: Compara as MÉDIAS de duas amostras para ver se são significativamente diferentes.
+# Teste de Wilcoxon (Não Paramétrico) - função wilcox.test: Compara as MEDIANAS ou as distribuições de RANKS (posições) de duas amostras.
+
+# =============================================================
 # 1. Carregando pacotes
 # =============================================================
 

@@ -158,3 +158,4 @@ ggplot(sim_df, aes(x = stat)) +
   theme_minimal()
 
 # Aula concluída!
+
