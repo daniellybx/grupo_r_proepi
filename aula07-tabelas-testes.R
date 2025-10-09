@@ -124,6 +124,26 @@ ggplot(data.frame(x, q_chisq), aes(x, q_chisq)) +
   labs(title = "Distribuição Qui-quadrado teórica", x = "Valor", y = "Densidade") +
   theme_minimal()
 
+# 5.4.1 Gráfico da distribuição teórica do qui-quadrado com 4 classes
+graus_de_liberdade <- 1
+tamanho_amostra <- 1000000
+
+dados_chi_quadrado <- data.frame(
+  Estatistica = rchisq(n = tamanho_amostra, df = graus_de_liberdade)
+)
+
+limite_maximo <- max(dados_chi_quadrado$Estatistica)
+limites_bins <- seq(0, limite_maximo, length.out = 5)
+
+ggplot(dados_chi_quadrado, aes(x = Estatistica)) +
+  geom_histogram(breaks = limites_bins, 
+                 fill = "skyblue", 
+                 color = "black") +
+  labs(title = "Distribuição Qui-quadrado (df=4) com 4 Bins",
+       x = expression(chi^2 ~ " (Valor da Estatística)"),
+       y = "Contagem (Frequência)") +
+  theme_minimal()
+
 # 5.5 Gráfico da distribuição das tabelas 2x2 reais
 # Visualizando proporção de óbito entre expostos e não expostos
 base %>%
@@ -137,25 +157,4 @@ base %>%
        y = "Proporção", x = "Exposição") +
   theme_minimal()
 
-# 5.6 Comparação empírica com distribuição Qui-quadrado
-# Gerando estatísticas de qui-quadrado a partir de reamostragens simuladas
-simulacoes <- replicate(1000, {
-  tab <- table(
-    sample(base$exposicao),
-    sample(base$desfecho)
-  )
-  chisq.test(tab)$statistic
-})
-
-# Histograma dos valores empíricos de Qui-quadrado comparado à curva teórica
-sim_df <- data.frame(stat = simulacoes)
-
-ggplot(sim_df, aes(x = stat)) +
-  geom_histogram(aes(y = ..density..), bins = 30, fill = "lightblue", color = "black") +
-  stat_function(fun = dchisq, args = list(df = 1), color = "red", size = 1.2) +
-  labs(title = "Distribuição empírica vs. teórica do Qui-quadrado",
-       x = "Estatística Qui-quadrado", y = "Densidade") +
-  theme_minimal()
-
 # Aula concluída!
-
