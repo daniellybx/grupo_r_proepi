@@ -49,6 +49,7 @@
 library(tidyverse)      # Manipulação de dados e gráficos
 library(lubridate)      # Manipulação de datas
 library(zoo)            # Cálculo de médias móveis
+library(distcrete).     # Distribuições discretizadas
 library(EpiEstim)       # Estimativa formal de Rt
 library(projections)    # Projeções com Rt e intervalos seriais
 library(epitrix)        # Utilitário para distribuição de Rt
@@ -162,7 +163,7 @@ proj <- project(
 
 
 # Plotando apenas os dados recentes + projeção
-grafico <- plot(inc_obj[inc_obj$dates > as.Date("2023-03-01")])
+grafico <- plot(inc_obj[inc_obj$dates > as.Date("2023-03-01")], show_cases = TRUE)
 add_projections(grafico, proj)
 
 # =============================================================

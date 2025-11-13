@@ -82,15 +82,6 @@ forecast::autoplot(previsao_simples) +
   labs(title = "Previsão com Holt-Winters sem Sazonalidade",
        x = "Tempo", y = "Casos Estimados") +
   theme_minimal()
-# =============================================================
-
-serie_ts <- ts(serie$casos, frequency = 52)  # frequência semanal
-modelo_hw_simples <- HoltWinters(serie_ts, beta = TRUE, gamma = FALSE)
-
-forecast::autoplot(previsao_simples) +
-  labs(title = "Previsão com Holt-Winters sem Sazonalidade",
-       x = "Tempo", y = "Casos Estimados") +
-  theme_minimal()
 
 # Comentário:
 # Esse modelo captura tendência mas não a sazonalidade. Útil para séries com variações suaves e sem padrão cíclico.
@@ -99,20 +90,12 @@ forecast::autoplot(previsao_simples) +
 # 6. Holt-Winters com sazonalidade
 # =============================================================
 
-modelo_hw_sazonal <- HoltWinters(serie_ts)
+modelo_hw_sazonal <- HoltWinters(serie_ts, beta = TRUE, gamma = TRUE, seasonal = "additive")
 
 # Gerando previsões a partir do modelo com sazonalidade
 previsao_sazonal <- forecast(modelo_hw_sazonal, h = 12)
 
 # Plotando as previsões
-forecast::autoplot(previsao_sazonal) +
-  labs(title = "Previsão com Holt-Winters com Sazonalidade",
-       x = "Tempo", y = "Casos Estimados") +
-  theme_minimal()
-# =============================================================
-
-modelo_hw_sazonal <- HoltWinters(serie_ts)
-
 forecast::autoplot(previsao_sazonal) +
   labs(title = "Previsão com Holt-Winters com Sazonalidade",
        x = "Tempo", y = "Casos Estimados") +

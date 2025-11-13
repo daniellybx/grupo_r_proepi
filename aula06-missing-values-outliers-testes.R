@@ -4,7 +4,7 @@
 # e realizar normalização de taxas para análises em epidemiologia.
 
 # =============================================================
-# Disclaimer
+# Disclaimer - correções de aulas anteriores
 # =============================================================
 # Nomes corretos para os símbolos
 
@@ -125,7 +125,6 @@ base_filtrada <- base %>%
 
 # =============================================================
 # 5. Normalização de taxas - usando phe_dsr()
-
 # =============================================================
 # A normalização de taxas é uma etapa essencial na análise epidemiológica.
 # Ela permite comparar taxas de eventos (como óbitos ou hospitalizações) entre grupos

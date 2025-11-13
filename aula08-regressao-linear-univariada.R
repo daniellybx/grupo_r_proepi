@@ -29,7 +29,7 @@ set.seed(123)
 n <- 1000
 
 # Simulando idade em meses (0 a 60 meses)
-idade_meses <- round(runif(n, 0, 60), 1)
+idade_meses <- round(runif(n, 0, 60))
 
 # Simulando peso infantil com distribuição normal verdadeira
 # Fórmula do peso baseada em taxa de crescimento média: 2.5kg + 0.25kg/mês
