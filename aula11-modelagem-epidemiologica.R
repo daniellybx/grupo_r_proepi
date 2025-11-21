@@ -49,7 +49,7 @@
 library(tidyverse)      # Manipulação de dados e gráficos
 library(lubridate)      # Manipulação de datas
 library(zoo)            # Cálculo de médias móveis
-library(distcrete).     # Distribuições discretizadas
+library(distcrete)      # Distribuições discretizadas
 library(EpiEstim)       # Estimativa formal de Rt
 library(projections)    # Projeções com Rt e intervalos seriais
 library(epitrix)        # Utilitário para distribuição de Rt

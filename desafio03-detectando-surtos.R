@@ -64,20 +64,13 @@ serie %>%
 # 4. Estime o Rt semanal de forma simplificada
 # =============================================================
 
-serie <- serie %>%
-  mutate(
-    casos_passado = lag(casos),
-    rt_estimado = casos / casos_passado
-  )
+# Crie uma nova coluna chamada "casos_passado" com o número de casos da semana anterior
+# Calcule o Rt como a razão entre "casos" e "casos_passado" (casos / lag(casos))
+# Armazene esse resultado na coluna "rt_estimado"
 
-# Gráfico do Rt com linha azul e linha vermelha pontilhada em y = 1
-serie %>%
-  ggplot(aes(x = semana, y = rt_estimado)) +
-  geom_line(color = "blue") +
-  geom_hline(yintercept = 1, linetype = "dashed", color = "red") +
-  labs(title = "Estimativa simplificada do Rt",
-       x = "Semana", y = "Rt estimado") +
-  theme_minimal()
+# Faça um gráfico com:
+# - Linha azul para o Rt
+# - Linha vermelha pontilhada em y = 1 como referência
 
 # =============================================================
 # 5. Conclusão
