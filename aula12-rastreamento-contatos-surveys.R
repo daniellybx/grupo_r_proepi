@@ -68,8 +68,8 @@ top_infectores <- sort(degree_tab, decreasing = TRUE)[1:5]
 top_infectores
 
 # Visualizando sub-rede de um indivíduo específico
-c50_subgrafo <- induced_subgraph(grafo, vids = unlist(ego(grafo, order = 1, nodes = "c50", mode = "out")))
-plot(c50_subgrafo, vertex.size = 5, vertex.label = NA, main = "Sub-rede a partir do caso c50")
+c34_subgrafo <- induced_subgraph(grafo, vids = unlist(ego(grafo, order = 1, nodes = "c34", mode = "out")))
+plot(c34_subgrafo, vertex.size = 5, vertex.label = NA, main = "Sub-rede a partir do caso c34")
 
 # =============================================================
 # 4. Simulando dados de questionário (survey)
